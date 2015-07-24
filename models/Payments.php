@@ -13,7 +13,6 @@
 namespace billing_payment\models;
 
 use AD\Finance\Money;
-use billing_invoice\models\Invoices;
 
 class Payments extends \base_core\models\Base {
 
@@ -23,6 +22,7 @@ class Payments extends \base_core\models\Base {
 
 	protected $_actsAs = [
 		'base_core\extensions\data\behavior\User',
+		'base_core\extensions\data\behavior\RelationsPlus',
 		'base_core\extensions\data\behavior\Timestamp',
 		'base_core\extensions\data\behavior\Localizable' => [
 			'fields' => [
@@ -34,7 +34,8 @@ class Payments extends \base_core\models\Base {
 				'method',
 				'date',
 				'User.number',
-				'VirtualUser.number'
+				'VirtualUser.number',
+				'Invoice.number'
 			]
 		]
 	];
@@ -53,17 +54,6 @@ class Payments extends \base_core\models\Base {
 			'key' => 'billing_invoice_id'
 		]
 	];
-
-	public function invoice($entity) {
-		if ($entity->invoice) {
-			return $entity->invoice;
-		}
-		return Invoices::find('first', [
-			'conditions' => [
-				'id' => $entity->billing_invoice_id
-			]
-		]);
-	}
 
 	public function amount($entity) {
 		return new Money((integer) $entity->amount, $entity->amount_currency);
