@@ -16,7 +16,7 @@ $this->set([
 ]);
 
 ?>
-<article class="view-<?= $this->_config['controller'] . '-' . $this->_config['template'] ?> section-spacing">
+<article>
 	<?=$this->form->create($item) ?>
 		<?= $this->form->field('id', ['type' => 'hidden']) ?>
 
