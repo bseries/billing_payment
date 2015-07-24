@@ -1,5 +1,5 @@
 Billing Payment
--- Payment functionality for Billing.
+-- Payment functionality for Banque.
 
 Synopsis
 --------

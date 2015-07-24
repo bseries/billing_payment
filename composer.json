@@ -1,6 +1,6 @@
 {
     "name": "atelierdisko/billing_payment",
-    "description": "Payment functionality for Billing.",
+    "description": "Payment functionality for Banque.",
     "homepage": "http://atelierdisko.de",
     "type": "lithium-library",
     "license": "proprietary",
