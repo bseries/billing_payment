@@ -24,7 +24,7 @@ Panes::register('billing.payments', [
 		'controller' => 'Payments', 'action' => 'index',
 		'admin' => true
 	],
-	'weight' => 60
+	'weight' => 45
 ]);
 
 ?>
