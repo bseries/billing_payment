@@ -77,6 +77,14 @@ $this->set([
 			</div>
 		</div>
 		<div class="bottom-actions">
+			<?php if ($item->exists()): ?>
+				<?= $this->html->link($t('delete'), [
+					'action' => 'delete',
+					'id' => $item->id,
+				], [
+					'class' => 'button delete large'
+				]) ?>
+			<?php endif ?>
 			<?= $this->form->button($t('save'), ['type' => 'submit', 'class' => 'save large']) ?>
 		</div>
 	<?=$this->form->end() ?>
