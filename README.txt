@@ -1,5 +1,5 @@
 Billing Payment
--- Core functionality for Billing.
+-- Payment functionality for Billing.
 
 Synopsis
 --------
