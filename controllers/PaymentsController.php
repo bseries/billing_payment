@@ -13,7 +13,6 @@
 namespace billing_payment\controllers;
 
 use base_core\models\Users;
-use base_core\models\VirtualUsers;
 use billing_invoice\models\Invoices;
 use billing_payment\models\Payments;
 use billing_core\models\Currencies;
@@ -28,13 +27,12 @@ class PaymentsController extends \base_core\controllers\BaseController {
 	use \base_core\controllers\AdminDeleteTrait;
 
 	protected function _selects($item = null) {
-		$virtualUsers = [null => '-'] + VirtualUsers::find('list', ['order' => 'name']);
 		$users = [null => '-'] + Users::find('list', ['order' => 'name']);
 
 		$invoices = [null => '-'] + Invoices::find('list');
 		$currencies = Currencies::find('list');
 
-		return compact('currencies', 'invoices', 'users', 'virtualUsers');
+		return compact('currencies', 'invoices', 'users');
 	}
 }
 

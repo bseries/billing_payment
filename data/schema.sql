@@ -1,8 +1,6 @@
--- Create syntax for TABLE 'billing_payments'
 CREATE TABLE `billing_payments` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) unsigned DEFAULT NULL,
-  `virtual_user_id` int(11) unsigned DEFAULT NULL,
+  `user_id` int(11) unsigned NOT NULL,
   `billing_invoice_id` int(11) unsigned DEFAULT NULL COMMENT 'may be used when pymnt can be connected to inv',
   `method` varchar(100) NOT NULL DEFAULT '',
   `amount_currency` char(3) NOT NULL DEFAULT 'EUR',
@@ -12,7 +10,5 @@ CREATE TABLE `billing_payments` (
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
-  KEY `virtual_user_id` (`virtual_user_id`),
   KEY `billing_invoice_id` (`billing_invoice_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-

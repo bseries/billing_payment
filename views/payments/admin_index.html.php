@@ -54,7 +54,6 @@ $this->set([
 			</thead>
 			<tbody>
 				<?php foreach ($data as $item): ?>
-					<?php $user = $item->user() ?>
 				<tr data-id="<?= $item->id ?>">
 					<td class="date">
 						<time datetime="<?= $this->date->format($item->date, 'w3c') ?>">
@@ -62,15 +61,7 @@ $this->set([
 						</time>
 					<td class="method"><?= $item->method ?: '–' ?>
 					<td class="user">
-						<?php if ($user): ?>
-							<?= $this->html->link($user->title(), [
-								'controller' => $user->isVirtual() ? 'VirtualUsers' : 'Users',
-								'action' => 'edit', 'id' => $user->id,
-								'library' => 'base_core'
-							]) ?>
-						<?php else: ?>
-							-
-						<?php endif ?>
+						<?= $this->user->link($item->user()) ?>
 					<td class="invoice">
 						<?php if ($invoice = $item->invoice()): ?>
 							<?= $this->html->link($invoice->title(), [
