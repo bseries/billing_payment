@@ -37,7 +37,7 @@ $this->set([
 		<table>
 			<thead>
 				<tr>
-					<td data-sort="date" class="date table-sort desc"><?= $t('Date') ?>
+					<td data-sort="date" class="date table-sort"><?= $t('Date') ?>
 					<td data-sort="method" class="method table-sort"><?= $t('Method') ?>
 					<td data-sort="User.number" class="user table-sort"><?= $t('Payer') ?>
 					<td data-sort="Invoice.number" class="invoice table-sort"><?= $t('On Invoice') ?>
