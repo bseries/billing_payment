@@ -21,9 +21,7 @@ Settings::register('service.bank.default', [
 	'holder' => null,
 	'bank' => null,
 	'bic' => null,
-	'iban' => null,
-	'code' => null,
-	'account' => null
+	'iban' => null
 ]);
 
 ?>
