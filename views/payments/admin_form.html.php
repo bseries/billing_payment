@@ -59,16 +59,22 @@ $this->set([
 				]) ?>
 			</div>
 		</div>
+
 		<div class="bottom-actions">
-			<?php if ($item->exists()): ?>
-				<?= $this->html->link($t('delete'), [
-					'action' => 'delete',
-					'id' => $item->id,
-				], [
-					'class' => 'button delete large'
+			<div class="bottom-actions__left">
+				<?php if ($item->exists()): ?>
+					<?= $this->html->link($t('delete'), [
+						'action' => 'delete', 'id' => $item->id
+					], ['class' => 'button large delete']) ?>
+				<?php endif ?>
+			</div>
+			<div class="bottom-actions__right">
+				<?= $this->form->button($t('save'), [
+					'type' => 'submit',
+					'class' => 'button large save'
 				]) ?>
-			<?php endif ?>
-			<?= $this->form->button($t('save'), ['type' => 'submit', 'class' => 'save large']) ?>
+			</div>
 		</div>
+
 	<?=$this->form->end() ?>
 </article>
