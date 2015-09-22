@@ -29,10 +29,6 @@ $this->set([
 		<?= $this->html->link($t('payment'), ['action' => 'add', 'library' => 'billing_payment'], ['class' => 'button add']) ?>
 	</div>
 
-	<div class="help">
-		<?= $t('Payments may be associated with an invoice but do not have to. This is to cater for situations where you receive a payment that you can only associate with an invoice later.') ?>
-	</div>
-
 	<?php if ($data->count()): ?>
 		<table>
 			<thead>
@@ -87,5 +83,9 @@ $this->set([
 	<?php endif ?>
 
 	<?=$this->view()->render(['element' => 'paging'], compact('paginator'), ['library' => 'base_core']) ?>
+
+	<div class="bottom-help">
+		<?= $t('Payments may be associated with an invoice but do not have to. This is to cater for situations where you receive a payment that you can only associate with an invoice later.') ?>
+	</div>
 
 </article>
