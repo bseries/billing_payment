@@ -12,3 +12,6 @@ CREATE TABLE `billing_payments` (
   KEY `user_id` (`user_id`),
   KEY `billing_invoice_id` (`billing_invoice_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Augment
+ALTER TABLE `users` ADD `payment_method` VARCHAR(100)  NULL  DEFAULT NULL  AFTER `tax_type`;
