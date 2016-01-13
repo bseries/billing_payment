@@ -49,7 +49,7 @@ class MethodConfiguration extends \base_core\core\Configuration {
 	//
 	// @link http://omnipay.thephpleague.com/
 	public function gateway() {
-		return Gateway::config($this->_data['gateway'])['adapter'];
+		return Gateway::config($this->_data['gateway'])->adapter;
 	}
 
 	public function title() {

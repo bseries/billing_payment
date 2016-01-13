@@ -17,6 +17,8 @@
 
 namespace billing_payment\models;
 
+use billing_payment\billing\payment\Method;
+
 class PaymentMeans extends \base_core\models\Base {
 
 	protected $_meta = [
@@ -34,6 +36,10 @@ class PaymentMeans extends \base_core\models\Base {
 			'key' => 'user_id'
 		]
 	];
+
+	public function method($entity) {
+		return Method::config($entity->payment_method)->adapter;
+	}
 }
 
 ?>
