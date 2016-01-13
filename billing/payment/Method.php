@@ -2,7 +2,7 @@
 /**
  * Billing Payment
  *
- * Copyright (c) 2016 Atelier Disko - All rights reserved.
+ * Copyright (c) 2014 Atelier Disko - All rights reserved.
  *
  * Licensed under the AD General Software License v1.
  *
@@ -15,17 +15,17 @@
  * License. If not, see http://atelierdisko.de/licenses.
  */
 
-namespace billing_payment\config;
+namespace billing_payment\billing\payment;
 
-use billing_payment\billing\payment\Gateway;
+use billing_payment\billing\payment\MethodConfiguration;
 
-Gateway::config('banqueInvoice', [
-	'title' => 'Banque Invoice',
-	'adapter' => 'BanqueInvoice'
-]);
-Gateway::config('banquePrepayment', [
-	'title' => 'Banque Invoice',
-	'adapter' => 'BanquePrepayment'
-]);
+class Method {
+
+	use \base_core\core\Configurable;
+
+	protected static function _config(array $config) {
+		return new MethodConfiguration(['data' => $config]);
+	}
+}
 
 ?>
