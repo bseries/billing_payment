@@ -24,8 +24,8 @@ class Method {
 	use \base_core\core\Configurable;
 	use \base_core\core\ConfigurableEnumeration;
 
-	protected static function _config($config) {
-		return new MethodConfiguration($config);
+	protected static function _initializeConfiguration($config) {
+		return new MethodConfiguration(is_callable($config) ? $config() : $config);
 	}
 }
 

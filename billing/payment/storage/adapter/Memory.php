@@ -15,11 +15,9 @@
  * License. If not, see http://atelierdisko.de/licenses.
  */
 
-namespace billing_payment\payment;
+namespace billing_payment\billing\payment\storage\adapter;
 
-use UnexpectedValueException;
-
-class Memory extends \billing_payment\payment\Storage {
+class Memory extends \billing_payment\billing\payment\storage\Adapter {
 
 	protected $_data = [];
 

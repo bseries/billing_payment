@@ -21,8 +21,8 @@ use AD\Finance\Price\NullPrice;
 
 class MethodConfiguration extends \base_core\core\Configuration {
 
-	protected function _initialize($config) {
-		return parent::_initialize($config) + [
+	public function __construct(array $config) {
+		parent::__construct($config + [
 			// The (display) title of the method, can also be an anonymous function.
 			'title' => $data['name'],
 
@@ -37,7 +37,7 @@ class MethodConfiguration extends \base_core\core\Configuration {
 
 			// Dependent on $format return either HTML or plaintext. Can be an anonymous function.
 			'info' => null
-		];
+		]);
 	}
 
 	// Retrieves the Gateway adapter object for the payment method. Each payment method
