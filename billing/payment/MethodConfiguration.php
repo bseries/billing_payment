@@ -21,8 +21,8 @@ use AD\Finance\Price\NullPrice;
 
 class MethodConfiguration extends \base_core\core\Configuration {
 
-	public function __construct(array $config = []) {
-		$config += [
+	protected function _initialize($config) {
+		return parent::_initialize($config) + [
 			// The (display) title of the method, can also be an anonymous function.
 			'title' => $data['name'],
 
@@ -38,7 +38,6 @@ class MethodConfiguration extends \base_core\core\Configuration {
 			// Dependent on $format return either HTML or plaintext. Can be an anonymous function.
 			'info' => null
 		];
-		parent::__construct($config);
 	}
 
 	// Retrieves the Gateway adapter object for the payment method. Each payment method
@@ -49,7 +48,7 @@ class MethodConfiguration extends \base_core\core\Configuration {
 	//
 	// @link http://omnipay.thephpleague.com/
 	public function gateway() {
-		return Gateway::config($this->_data['gateway'])->adapter;
+		return Gateway::config($this->_gateway)->adapter;
 	}
 
 	public function title() {

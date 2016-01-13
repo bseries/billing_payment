@@ -22,9 +22,10 @@ use billing_payment\billing\payment\MethodConfiguration;
 class Method {
 
 	use \base_core\core\Configurable;
+	use \base_core\core\ConfigurableEnumeration;
 
-	protected static function _config(array $config) {
-		return new MethodConfiguration(['data' => $config]);
+	protected static function _config($config) {
+		return new MethodConfiguration($config);
 	}
 }
 

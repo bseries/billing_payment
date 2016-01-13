@@ -17,26 +17,23 @@
 
 namespace billing_payment\billing\payment;
 
-use lithium\core\Libraries;
 use RuntimeException;
+use base_core\core\Configuration;
+use lithium\core\Libraries;
 
 class Gateways {
 
 	use \base_core\core\Configurable;
+	use \base_core\core\ConfigurableEnumberation;
 
-	protected static function _config($config) {
-		return new Configuration([
-			'data' => $config,
-			'initializer' => function($config) {
-				if (!is_object($config['adapter'])) {
-					if (!$class = Libraries::locate('adapter.billing.payment.gateway')) {
-						throw new RuntimeException("No adapter class for `{$config['adapter']}` found.");
-					}
-					$config['adapter'] = new $class['adapter']($config);
-				}
-				return $config;
+	protected static function _initializeConfiguration($config) {
+		if (!is_object($config['adapter'])) {
+			if (!$class = Libraries::locate('adapter.billing.payment.gateway')) {
+				throw new RuntimeException("No adapter class for `{$config['adapter']}` found.");
 			}
-		]);
+			$config['adapter'] = new $class['adapter']($config);
+		}
+		return new Configuration($config);
 	}
 }
 
