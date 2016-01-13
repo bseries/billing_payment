@@ -17,10 +17,20 @@
 
 namespace billing_payment\config;
 
-use billing_payment\models\PaymentMethods;
 use lithium\g11n\Message;
+use billing_payment\billing\payment\Gateway;
+use billing_payment\billing\payment\Method;
 
 extract(Message::aliases());
+
+Gateway::config('banqueInvoice', [
+	'title' => 'Banque Invoice',
+	'adapter' => 'BanqueInvoice'
+]);
+Gateway::config('banquePrepayment', [
+	'title' => 'Banque Invoice',
+	'adapter' => 'BanquePrepayment'
+]);
 
 //
 // Payment Methods
@@ -40,8 +50,8 @@ $infoBankAccount = function($context, $format) {
 	}
 	return implode("\n", $result);
 };
-
-PaymentMethods::register('banque.localInvoice', [
+Method::config('banqueInvoice', [
+	'gateway' => 'banqueInvoice',
 	'title' => function() use ($t) {
 		return $t('Invoice', ['scope' => 'billing_core']);
 	},
@@ -65,11 +75,11 @@ PaymentMethods::register('banque.localInvoice', [
 	}
 ]);
 
-PaymentMethods::register('banque.localPrepayment', [
+Method::config('banuqePrepayment', [
+	'gateway' => 'banquePrepayment',
 	'title' => function() use ($t) {
 		return $t('Prepayment', ['scope' => 'billing_core']);
 	},
-	'online' => false,
 	'info' => function($context, $format) use ($t, $infoBankAccount) {
 		$output = '';
 
@@ -92,36 +102,5 @@ PaymentMethods::register('banque.localPrepayment', [
 		return $output;
 	}
 ]);
-
-// https://developer.paypal.com/docs/classic/paypal-payments-standard/integration-guide/formbasics/
-/*
-PaymentMethods::register('paypal.form', [
-	'title' => $t('PayPal'),
-	'online' => 'off-site',
-	'info' => function($context, $format, $renderer, $order) {
-		if ($context === 'checkout.payment') {
-			$intro  = 'Nach Bestätigung der Bestellung können Sie den Betrag über PayPal bezahlen.';
-			$intro .= ' Sie haben bei PayPal auch die Möglichkeit per Lastschrift oder Kredikarte zu zahlen.';
-		} else {
-			$intro = 'Sie können nun die Bezahlung per PayPal über folgenden Link vornehmen:';
-		}
-		$output = $format == 'html' ? "<p>{$intro}</p>" : $intro;
-
-		if ($context != 'checkout.payment') {
-			if ($format === 'html') {
-				$output .= $renderer->html-link([
-					'controller' => 'Orders', 'action' => 'pay', 'uuid' => $order->uuid
-				], ['absolute' => true]);
-			} else {
-				$output .= "\n" . $renderer->url([
-					'controller' => 'Orders', 'action' => 'pay', 'uuid' => $order->uuid
-				], ['absolute' => true]);
-			}
-		}
-		return $output;
-	}
-]);
- */
-
 
 ?>

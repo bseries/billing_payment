@@ -27,7 +27,8 @@ class PaymentGateways extends \base_core\models\BaseRegister {
 		return $data + [
 			// The (display) title of the method, can also be an anonymous function.
 			// @see billing_core\models\PaymentGateways::title()
-			'title' => $data['name']
+			'title' => $data['name'],
+			'object' => new $data['name']
 		];
 	}
 }
