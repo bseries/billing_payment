@@ -30,7 +30,6 @@ class PaymentGateways extends \base_core\models\BaseRegister {
 			'title' => $data['name']
 		];
 	}
-
 }
 
 ?>

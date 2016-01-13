@@ -53,8 +53,8 @@ class PaymentMethods extends \base_core\models\BaseRegister {
 	// Retrieves the Gateway object for the payment method. Each payment method
 	// specifies which gateway it intends to use, using the following notation.
 	//
-	// Gateway provided by the B-Series : `'Banque.PayPal'`
-	// --------- " ------- Omnipay      : `'Omnipay.PayPal'`
+	// Gateway provided by the B-Series : `'banquePayPal'`
+	// --------- " ------- Omnipay      : `'omnipayPayPal'`
 	//
 	// @link http://omnipay.thephpleague.com/
 	public function gateway($entity) {
