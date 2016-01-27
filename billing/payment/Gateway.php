@@ -21,7 +21,7 @@ use RuntimeException;
 use base_core\core\Configuration;
 use lithium\core\Libraries;
 
-class Gateways {
+class Gateway {
 
 	use \base_core\core\Configurable;
 	use \base_core\core\ConfigurableEnumeration;
