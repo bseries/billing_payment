@@ -32,7 +32,7 @@ class MethodConfiguration extends \base_core\core\Configuration {
 			// that the method is made available to a user.
 			'access' => ['user.role:admin'],
 
-			// The fee applied when using the payment method.
+			// The fee applied when using the payment method. Can also be a callable.
 			'price' => new NullPrice(),
 
 			// Dependent on $format return either HTML or plaintext. Can be an anonymous function.
