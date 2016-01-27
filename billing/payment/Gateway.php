@@ -24,7 +24,7 @@ use lithium\core\Libraries;
 class Gateways {
 
 	use \base_core\core\Configurable;
-	use \base_core\core\ConfigurableEnumberation;
+	use \base_core\core\ConfigurableEnumeration;
 
 	protected static function _initializeConfiguration($config) {
 		if (!is_object($config['adapter'])) {
