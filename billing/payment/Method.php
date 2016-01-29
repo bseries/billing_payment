@@ -27,7 +27,7 @@ class Method {
 	public function __construct(array $config) {
 		return $this->_config = $config + [
 			// The (display) title of the method, can also be an anonymous function.
-			'title' => $config['name'],
+			'title' => null,
 
 			// Name of the gateway configuration to use.
 			'gateway' => null,

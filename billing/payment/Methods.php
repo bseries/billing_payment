@@ -24,8 +24,8 @@ class Methods {
 	use \base_core\core\Registerable;
 	use \base_core\core\RegisterableEnumeration;
 
-	public static function register($name, Method $object) {
-		static::$_registry[$name] = $object;
+	public static function register($name, array $object) {
+		static::$_registry[$name] = new Method($object);
 	}
 }
 
