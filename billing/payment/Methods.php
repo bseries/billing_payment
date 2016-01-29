@@ -2,7 +2,7 @@
 /**
  * Billing Payment
  *
- * Copyright (c) 2016 Atelier Disko - All rights reserved.
+ * Copyright (c) 2014 Atelier Disko - All rights reserved.
  *
  * Licensed under the AD General Software License v1.
  *
@@ -15,16 +15,18 @@
  * License. If not, see http://atelierdisko.de/licenses.
  */
 
-namespace billing_payment\billing\payment\gateway;
+namespace billing_payment\billing\payment;
 
-// This class is loosely modeled upon the Omnipay AbstractGateway. It represents
-// a specific payment gateway.
-//
-// @link https://github.com/thephpleague/omnipay-common/blob/master/src/Omnipay/Common/AbstractGateway.php
-abstract class Adapter extends \base_core\core\Adapter {
+use billing_payment\billing\payment\Method;
 
-	// Must return the Storage object for this Gateway.
-	abstract public function storage();
+class Methods {
+
+	use \base_core\core\Registerable;
+	use \base_core\core\RegisterableEnumeration;
+
+	public static function register($name, Method $object) {
+		static::$_registry[$name] = $object;
+	}
 }
 
 ?>

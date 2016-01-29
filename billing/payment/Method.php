@@ -17,15 +17,61 @@
 
 namespace billing_payment\billing\payment;
 
-use billing_payment\billing\payment\MethodConfiguration;
+use billing_payment\billing\payment\Gateways;
+use AD\Finance\Price\NullPrice;
 
 class Method {
 
-	use \base_core\core\Configurable;
-	use \base_core\core\ConfigurableEnumeration;
+	protected $_config = [];
 
-	protected static function _initializeConfiguration($config) {
-		return new MethodConfiguration(is_callable($config) ? $config() : $config);
+	public function __construct(array $config) {
+		return $this->_config = $config + [
+			// The (display) title of the method, can also be an anonymous function.
+			'title' => $config['name'],
+
+			// Name of the gateway configuration to use.
+			'gateway' => null,
+
+			// Set of conditions of which any must be fulfilled, so
+			// that the method is made available to a user.
+			'access' => ['user.role:admin'],
+
+			// The fee applied when using the payment method. Can also be a callable.
+			'price' => new NullPrice(),
+
+			// Dependent on $format return either HTML or plaintext. Can be an anonymous function.
+			'info' => null
+		];
+	}
+
+	public function __call($name, array $arguments) {
+		if (!array_key_exists($name, $this->_config)) {
+			throw new BadMethodCallException("Method or configuration `{$name}` does not exist.");
+		}
+		return $this->_config[$name];
+	}
+
+	// Retrieves the Gateway adapter object for the payment method. Each payment method
+	// specifies which gateway it intends to use, using the following notation.
+	//
+	// Gateway provided by the B-Series : `'banquePayPal'`
+	// --------- " ------- Omnipay      : `'omnipayPayPal'`
+	//
+	// @link http://omnipay.thephpleague.com/
+	public function gateway() {
+		return Gateways::registry($this->_config['gateway']);
+	}
+
+	public function title() {
+		return is_callable($value = $this->_config[__FUNCTION__]) ? $value() : $value;
+	}
+
+	public function price($user, $cart) {
+		return is_callable($value = $this->_config[__FUNCTION__]) ? $value($user, $cart) : $value;
+	}
+
+	public function info($entity, $context, $format, $renderer, $order) {
+		return is_callable($value = $this->_config[__FUNCTION__]) ? $value($context, $format, $renderer, $order) : $value;
 	}
 }
 

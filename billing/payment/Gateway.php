@@ -15,26 +15,29 @@
  * License. If not, see http://atelierdisko.de/licenses.
  */
 
-namespace billing_payment\billing\payment;
+namespace billing_payment\billing\payment\gateway;
 
-use RuntimeException;
-use base_core\core\Configuration;
-use lithium\core\Libraries;
+// This class is loosely modeled upon the Omnipay AbstractGateway. It represents
+// a specific payment gateway.
+//
+// @link https://github.com/thephpleague/omnipay-common/blob/master/src/Omnipay/Common/AbstractGateway.php
+abstract class Gateway {
 
-class Gateway {
+	protected $_config = [];
 
-	use \base_core\core\Configurable;
-	use \base_core\core\ConfigurableEnumeration;
-
-	protected static function _initializeConfiguration($config) {
-		if (!is_object($config['adapter'])) {
-			if (!$class = Libraries::locate('adapter.billing.payment.gateway')) {
-				throw new RuntimeException("No adapter class for `{$config['adapter']}` found.");
-			}
-			$config['adapter'] = new $class['adapter']($config);
-		}
-		return new Configuration($config);
+	public function __construct(array $config) {
+		return $this->_config = $config;
 	}
+
+	public function __call($name, array $arguments) {
+		if (!array_key_exists($name, $this->_config)) {
+			throw new BadMethodCallException("Method or configuration `{$name}` does not exist.");
+		}
+		return $this->_config[$name];
+	}
+
+	// Must return the Storage object for this Gateway.
+	abstract public function storage();
 }
 
 ?>
