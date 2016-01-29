@@ -15,18 +15,31 @@
  * License. If not, see http://atelierdisko.de/licenses.
  */
 
-namespace billing_payment\payment;
+namespace billing_payment\billing\payment\storage\adapter;
 
-use UnexpectedValueException;
+class Memory extends \billing_payment\billing\payment\storage\Adapter {
 
-// This class is loosely modeled upon the Omnipay AbstractGateway. It represents
-// a specific payment gateway.
-//
-// @link https://github.com/thephpleague/omnipay-common/blob/master/src/Omnipay/Common/AbstractGateway.php
-abstract class Gateway {
+	protected $_data = [];
 
-	// Must return the Storage object for this Gateway.
-	abstract public function storage();
+	public function write($key, $data) {
+		$this->_data[$key] = $data;
+		return true;
+	}
+
+	public function read($key) {
+		if (!isset($this->_data[$key])) {
+			return null;
+		}
+		return $this->_data[$key];
+	}
+
+	public function delete($key) {
+		if (!isset($this->_data[$key])) {
+			return false;
+		}
+		unset($this->_data[$key]);
+		return true;
+	}
 }
 
 ?>

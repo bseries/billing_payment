@@ -15,20 +15,17 @@
  * License. If not, see http://atelierdisko.de/licenses.
  */
 
-namespace billing_payment\models;
+namespace billing_payment\billing\payment;
 
-use UnexpectedValueException;
+use billing_payment\billing\payment\Gateway;
 
-// @see base_core\models\BaseRegister
-// @see billing_payment\models\PaymentGateways::_register()
-class PaymentGateways extends \base_core\models\BaseRegister {
+class Gateways {
 
-	protected static function _register(array $data) {
-		return $data + [
-			// The (display) title of the method, can also be an anonymous function.
-			// @see billing_core\models\PaymentGateways::title()
-			'title' => $data['name']
-		];
+	use \base_core\core\Registerable;
+	use \base_core\core\RegisterableEnumeration;
+
+	public static function register($name, Gateway $object) {
+		static::$_registry[$name] = $object;
 	}
 }
 
