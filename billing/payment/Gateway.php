@@ -15,7 +15,7 @@
  * License. If not, see http://atelierdisko.de/licenses.
  */
 
-namespace billing_payment\billing\payment\gateway;
+namespace billing_payment\billing\payment;
 
 // This class is loosely modeled upon the Omnipay AbstractGateway. It represents
 // a specific payment gateway.

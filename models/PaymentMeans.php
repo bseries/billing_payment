@@ -17,7 +17,7 @@
 
 namespace billing_payment\models;
 
-use billing_payment\billing\payment\Method;
+use billing_payment\billing\payment\Methods;
 
 class PaymentMeans extends \base_core\models\Base {
 
@@ -38,7 +38,7 @@ class PaymentMeans extends \base_core\models\Base {
 	];
 
 	public function method($entity) {
-		return Method::config($entity->payment_method)->adapter;
+		return Methods::registry($entity->payment_method);
 	}
 }
 
