@@ -17,14 +17,19 @@
 
 namespace billing_payment\billing\payment;
 
-use billing_payment\billing\payment\Gateways;
 use AD\Finance\Price\NullPrice;
+use BadMethodCallException;
+use billing_payment\billing\payment\Gateways;
+use li3_access\security\Access;
 
 class Method {
 
 	protected $_config = [];
 
 	public function __construct(array $config) {
+		if (isset($config['access'])) {
+			$config['access'] = (array) $config['access'];
+		}
 		return $this->_config = $config + [
 			// The (display) title of the method, can also be an anonymous function.
 			'title' => null,
@@ -49,6 +54,15 @@ class Method {
 			throw new BadMethodCallException("Method or configuration `{$name}` does not exist.");
 		}
 		return $this->_config[$name];
+	}
+
+	public function hasAccess($user) {
+		return Access::check(
+			'entity',
+			$user,
+			$this,
+			$this->_config['access']
+		);
 	}
 
 	// Retrieves the Gateway adapter object for the payment method. Each payment method
