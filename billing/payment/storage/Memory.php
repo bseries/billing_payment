@@ -15,21 +15,31 @@
  * License. If not, see http://atelierdisko.de/licenses.
  */
 
-namespace billing_payment\payment;
+namespace billing_payment\billing\payment\storage;
 
-use UnexpectedValueException;
+class Memory extends \billing_payment\billing\payment\Storage {
 
-// This class represents a payment gateway's storage. Wherin we can
-// store potentially sensitive data (remotely). So that we don't have
-// to be PCI compliant. It works pretty much like a very simple
-// key/value store.
-abstract class Storage {
+	protected $_data = [];
 
-	abstract public function write($key, $data);
+	public function write($key, $data) {
+		$this->_data[$key] = $data;
+		return true;
+	}
 
-	abstract public function read($key);
+	public function read($key) {
+		if (!isset($this->_data[$key])) {
+			return null;
+		}
+		return $this->_data[$key];
+	}
 
-	abstract public function delete($key);
+	public function delete($key) {
+		if (!isset($this->_data[$key])) {
+			return false;
+		}
+		unset($this->_data[$key]);
+		return true;
+	}
 }
 
 ?>
