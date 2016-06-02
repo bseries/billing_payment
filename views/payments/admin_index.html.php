@@ -63,7 +63,7 @@ $this->set([
 							<?= $this->html->link($invoice->title(), [
 								'controller' => 'Invoices',
 								'action' => 'edit', 'id' => $invoice->id,
-								'library' => 'billing_payment'
+								'library' => 'billing_invoice'
 							]) ?>
 						<?php else: ?>
 							-
