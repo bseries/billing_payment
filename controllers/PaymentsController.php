@@ -32,12 +32,15 @@ class PaymentsController extends \base_core\controllers\BaseController {
 	use \base_core\controllers\AdminDeleteTrait;
 
 	protected function _selects($item = null) {
-		$users = [null => '-'] + Users::find('list', ['order' => 'name']);
-
-		$invoices = [null => '-'] + Invoices::find('list');
 		$currencies = Currencies::find('list');
 
-		return compact('currencies', 'invoices', 'users');
+		if ($item) {
+			$users = $this->_users($item, ['field' => 'user_id', 'empty' => true]);
+			$invoices = [null => '-'] + Invoices::find('list');
+
+			return compact('currencies', 'invoices', 'users');
+		}
+		return compact('currencies');
 	}
 }
 
