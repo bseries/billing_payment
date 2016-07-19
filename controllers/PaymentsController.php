@@ -17,7 +17,6 @@
 
 namespace billing_payment\controllers;
 
-use base_core\models\Users;
 use billing_invoice\models\Invoices;
 use billing_payment\models\Payments;
 use billing_core\models\Currencies;
@@ -30,6 +29,7 @@ class PaymentsController extends \base_core\controllers\BaseController {
 	use \base_core\controllers\AdminAddTrait;
 	use \base_core\controllers\AdminEditTrait;
 	use \base_core\controllers\AdminDeleteTrait;
+	use \base_core\controllers\UsersTrait;
 
 	protected function _selects($item = null) {
 		$currencies = Currencies::find('list');
