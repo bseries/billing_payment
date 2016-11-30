@@ -110,4 +110,4 @@ msgstr "öffnen"
 
 #: views/payments/admin_index.html.php:96
 msgid "No items available, yet."
-msgstr "Es sind noch keine Elemente verfügbar."
+msgstr "Es sind noch keine Einträge verfügbar."
