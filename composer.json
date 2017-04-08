@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": ">=5.5.0",
+        "php": "^5.5 || ^7.0",
         "composer/installers": "1.*@stable",
         "atelierdisko/li3_access": "2.*@stable || 2.1.0@dev",
         "atelierdisko/li3_flash_message": "1.*",
