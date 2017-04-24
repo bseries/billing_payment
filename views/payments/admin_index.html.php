@@ -82,7 +82,7 @@ $this->set([
 		<div class="none-available"><?= $t('No items available, yet.') ?></div>
 	<?php endif ?>
 
-	<?=$this->view()->render(['element' => 'paging'], compact('paginator'), ['library' => 'base_core']) ?>
+	<?=$this->_render('element', 'paging', compact('paginator'), ['library' => 'base_core']) ?>
 
 	<div class="bottom-help">
 		<?= $t('Payments may be associated with an invoice but do not have to. This is to cater for situations where you receive a payment that you can only associate with an invoice later.') ?>
