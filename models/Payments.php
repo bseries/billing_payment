@@ -57,13 +57,6 @@ class Payments extends \base_core\models\Base {
 	public function amount($entity) {
 		return new Money((integer) $entity->amount, $entity->amount_currency);
 	}
-
-	/* Deprecated */
-
-	public function totalAmount($entity) {
-		trigger_error("Payments::totalAmount() is deprecated in favor of Payments::amount()", E_USER_DEPRECATED);
-		return $entity->amount();
-	}
 }
 
 ?>
