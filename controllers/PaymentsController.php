@@ -36,8 +36,15 @@ class PaymentsController extends \base_core\controllers\BaseController {
 
 		if ($item) {
 			$users = $this->_users($item, ['field' => 'user_id', 'empty' => true]);
-			$invoices = [null => '-'] + Invoices::find('list');
-
+			$invoices = [null => '-'] + Invoices::find('list', [
+				'conditions' => [
+					'OR' => [
+						'user_id' => $item->user_id,
+						'id' => $item->billing_invoice_id
+					]
+				],
+				'order' => ['number' => 'DESC']
+			]);
 			return compact('currencies', 'invoices', 'users');
 		}
 		return compact('currencies');
