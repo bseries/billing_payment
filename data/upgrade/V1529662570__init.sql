@@ -11,7 +11,7 @@ CREATE TABLE `billing_payments` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `billing_invoice_id` (`billing_invoice_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB;
 
 CREATE TABLE `billing_payment_means` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -24,7 +24,7 @@ CREATE TABLE `billing_payment_means` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB;
 
 -- Augment
 ALTER TABLE `users` ADD `payment_method` VARCHAR(100)  NULL  DEFAULT NULL  AFTER `tax_type`;
