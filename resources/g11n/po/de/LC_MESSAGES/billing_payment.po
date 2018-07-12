@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: billing_payment 1.0\n"
 "Report-Msgid-Bugs-To: info@atelierdisko.de\n"
-"POT-Creation-Date: 2015-07-24 16:25+0200\n"
+"POT-Creation-Date: 2018-07-12 12:51+0200\n"
 "PO-Revision-Date: 2015-07-24 16:30+0100\n"
 "Last-Translator: David Persson <davidpersson@gmx.de>\n"
 "Language-Team: none\n"
@@ -18,55 +18,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.7\n"
 
-#: config/panes.php:21
+#: config/panes.php:26
 msgid "Payments"
 msgstr "Zahlungen"
 
-#: config/widgets.php:36
-msgid "received"
-msgstr "erhalten"
-
-#: views/payments/admin_form.html.php:14
-#: views/payments/admin_index.html.php:29
+#: views/payments/admin_form.html.php:14 views/payments/admin_index.html.php:29
 msgid "payment"
 msgstr "Zahlung"
 
-#: views/payments/admin_form.html.php:27
-#: views/payments/admin_index.html.php:40
+#: views/payments/admin_form.html.php:29 views/payments/admin_index.html.php:36
 msgid "Date"
 msgstr "Datum"
 
-#: views/payments/admin_form.html.php:30
+#: views/payments/admin_form.html.php:32
 msgid "Date payment was received."
 msgstr "Datum, an dem die Zahlung erhalten wurde."
 
-#: views/payments/admin_form.html.php:34
-#: views/payments/admin_index.html.php:41
+#: views/payments/admin_form.html.php:36 views/payments/admin_index.html.php:37
 msgid "Method"
 msgstr "Methode"
 
-#: views/payments/admin_form.html.php:39
+#: views/payments/admin_form.html.php:41
 msgid "Currency"
 msgstr "Währung"
 
-#: views/payments/admin_form.html.php:45
-#: views/payments/admin_index.html.php:44
+#: views/payments/admin_form.html.php:47 views/payments/admin_index.html.php:40
 msgid "Amount"
 msgstr "Betrag"
 
-#: views/payments/admin_form.html.php:52
+#: views/payments/admin_form.html.php:54
 msgid "Invoice"
 msgstr "Rechnung"
 
-#: views/payments/admin_form.html.php:61
+#: views/payments/admin_form.html.php:59
 msgid "User"
 msgstr "Benutzer"
 
-#: views/payments/admin_form.html.php:73
-msgid "real user"
-msgstr "echter Benutzer"
+#: views/payments/admin_form.html.php:68
+msgid "delete"
+msgstr "löschen"
 
-#: views/payments/admin_form.html.php:80
+#: views/payments/admin_form.html.php:74
 msgid "save"
 msgstr "speichern"
 
@@ -74,7 +66,31 @@ msgstr "speichern"
 msgid "payments"
 msgstr "Zahlungen"
 
-#: views/payments/admin_index.html.php:33
+#: views/payments/admin_index.html.php:38
+msgid "Payer"
+msgstr "Einzahlender"
+
+#: views/payments/admin_index.html.php:39
+msgid "On Invoice"
+msgstr "Auf Rechnung"
+
+#: views/payments/admin_index.html.php:41
+msgid "Modified"
+msgstr "Bearbeitet"
+
+#: views/payments/admin_index.html.php:46
+msgid "Filter"
+msgstr "Filter"
+
+#: views/payments/admin_index.html.php:77
+msgid "open"
+msgstr "öffnen"
+
+#: views/payments/admin_index.html.php:82
+msgid "No items available, yet."
+msgstr "Es sind noch keine Einträge verfügbar."
+
+#: views/payments/admin_index.html.php:88
 msgid ""
 "Payments may be associated with an invoice but do not have to. This is to "
 "cater for situations where you receive a payment that you can only associate "
@@ -84,30 +100,8 @@ msgstr ""
 "ist nützlich in Situationen, wo eine Zahlung erhalten wurde, aber erst "
 "später mit einer Rechnung verbunden werden kann."
 
-#: views/payments/admin_index.html.php:42
-msgid "Payer"
-msgstr "Einzahlender"
+#~ msgid "received"
+#~ msgstr "erhalten"
 
-#: views/payments/admin_index.html.php:43
-msgid "On Invoice"
-msgstr "Auf Rechnung"
-
-#: views/payments/admin_index.html.php:45
-msgid "Modified"
-msgstr "Bearbeitet"
-
-#: views/payments/admin_index.html.php:50
-msgid "Filter"
-msgstr "Filter"
-
-#: views/payments/admin_index.html.php:90
-msgid "delete"
-msgstr "löschen"
-
-#: views/payments/admin_index.html.php:91
-msgid "open"
-msgstr "öffnen"
-
-#: views/payments/admin_index.html.php:96
-msgid "No items available, yet."
-msgstr "Es sind noch keine Einträge verfügbar."
+#~ msgid "real user"
+#~ msgstr "echter Benutzer"

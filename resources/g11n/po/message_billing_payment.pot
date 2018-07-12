@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Atelier Disko
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the billing_payment package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: billing_payment 1.0\n"
 "Report-Msgid-Bugs-To: info@atelierdisko.de\n"
-"POT-Creation-Date: 2015-07-24 16:25+0200\n"
+"POT-Creation-Date: 2018-07-12 12:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,55 +17,47 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config/panes.php:21
+#: config/panes.php:26
 msgid "Payments"
 msgstr ""
 
-#: config/widgets.php:36
-msgid "received"
-msgstr ""
-
-#: views/payments/admin_form.html.php:14
-#: views/payments/admin_index.html.php:29
+#: views/payments/admin_form.html.php:14 views/payments/admin_index.html.php:29
 msgid "payment"
 msgstr ""
 
-#: views/payments/admin_form.html.php:27
-#: views/payments/admin_index.html.php:40
+#: views/payments/admin_form.html.php:29 views/payments/admin_index.html.php:36
 msgid "Date"
 msgstr ""
 
-#: views/payments/admin_form.html.php:30
+#: views/payments/admin_form.html.php:32
 msgid "Date payment was received."
 msgstr ""
 
-#: views/payments/admin_form.html.php:34
-#: views/payments/admin_index.html.php:41
+#: views/payments/admin_form.html.php:36 views/payments/admin_index.html.php:37
 msgid "Method"
 msgstr ""
 
-#: views/payments/admin_form.html.php:39
+#: views/payments/admin_form.html.php:41
 msgid "Currency"
 msgstr ""
 
-#: views/payments/admin_form.html.php:45
-#: views/payments/admin_index.html.php:44
+#: views/payments/admin_form.html.php:47 views/payments/admin_index.html.php:40
 msgid "Amount"
 msgstr ""
 
-#: views/payments/admin_form.html.php:52
+#: views/payments/admin_form.html.php:54
 msgid "Invoice"
 msgstr ""
 
-#: views/payments/admin_form.html.php:61
+#: views/payments/admin_form.html.php:59
 msgid "User"
 msgstr ""
 
-#: views/payments/admin_form.html.php:73
-msgid "real user"
+#: views/payments/admin_form.html.php:68
+msgid "delete"
 msgstr ""
 
-#: views/payments/admin_form.html.php:80
+#: views/payments/admin_form.html.php:74
 msgid "save"
 msgstr ""
 
@@ -73,37 +65,33 @@ msgstr ""
 msgid "payments"
 msgstr ""
 
-#: views/payments/admin_index.html.php:33
+#: views/payments/admin_index.html.php:38
+msgid "Payer"
+msgstr ""
+
+#: views/payments/admin_index.html.php:39
+msgid "On Invoice"
+msgstr ""
+
+#: views/payments/admin_index.html.php:41
+msgid "Modified"
+msgstr ""
+
+#: views/payments/admin_index.html.php:46
+msgid "Filter"
+msgstr ""
+
+#: views/payments/admin_index.html.php:77
+msgid "open"
+msgstr ""
+
+#: views/payments/admin_index.html.php:82
+msgid "No items available, yet."
+msgstr ""
+
+#: views/payments/admin_index.html.php:88
 msgid ""
 "Payments may be associated with an invoice but do not have to. This is to "
 "cater for situations where you receive a payment that you can only associate "
 "with an invoice later."
-msgstr ""
-
-#: views/payments/admin_index.html.php:42
-msgid "Payer"
-msgstr ""
-
-#: views/payments/admin_index.html.php:43
-msgid "On Invoice"
-msgstr ""
-
-#: views/payments/admin_index.html.php:45
-msgid "Modified"
-msgstr ""
-
-#: views/payments/admin_index.html.php:50
-msgid "Filter"
-msgstr ""
-
-#: views/payments/admin_index.html.php:90
-msgid "delete"
-msgstr ""
-
-#: views/payments/admin_index.html.php:91
-msgid "open"
-msgstr ""
-
-#: views/payments/admin_index.html.php:96
-msgid "No items available, yet."
 msgstr ""
