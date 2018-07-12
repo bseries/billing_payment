@@ -80,7 +80,7 @@ msgid ""
 "cater for situations where you receive a payment that you can only associate "
 "with an invoice later."
 msgstr ""
-"Zahlungen können mit einer Rechnung verbunden sein - müssen aber nicht. Dies "
+"Zahlungen können mit einer Rechnung verbunden sein – müssen aber nicht. Dies "
 "ist nützlich in Situationen, wo eine Zahlung erhalten wurde, aber erst "
 "später mit einer Rechnung verbunden werden kann."
 

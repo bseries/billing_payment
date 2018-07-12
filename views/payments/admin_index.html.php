@@ -66,7 +66,7 @@ $this->set([
 								'library' => 'billing_invoice'
 							]) ?>
 						<?php else: ?>
-							-
+							–
 						<?php endif ?>
 					<td class="money"><?= $this->money->format($item->amount()) ?>
 					<td class="date modified">
