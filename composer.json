@@ -2,7 +2,7 @@
     "name": "bseries/billing_payment",
     "description": "Payment functionality for Banque.",
     "type": "lithium-library",
-    "license": "proprietary",
+    "license": ["BSD-3-Clause"],
     "require": {
         "atelierdisko/finance": "^2",
         "atelierdisko/li3_access": "^2.2",
